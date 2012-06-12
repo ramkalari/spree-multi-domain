@@ -9,5 +9,5 @@ else
 end
 
 gemspec
-gem 'spree'
+gem 'spree', :git => 'https://github.com/ramkalari/spree'
 gem 'ffaker'
