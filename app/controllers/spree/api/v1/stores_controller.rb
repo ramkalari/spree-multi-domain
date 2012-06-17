@@ -29,7 +29,7 @@
 				    @stores = Spree::Store.search(params[:q]).result.page(params[:page])
 				    respond_to do |format|
 				    	format.html #index.html.erb
-				    	format.json {rdner json: @stores}
+				    	format.json {render json: @stores}
 				  end  
 
 
