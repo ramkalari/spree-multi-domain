@@ -27,7 +27,9 @@
 
 				  def search
 				    @stores = Spree::Store.search(params[:q]).result.page(params[:page])
-				    render :index
+				    respond_to do |format|
+				    	format.html #index.html.erb
+				    	format.json {rdner json: @stores}
 				  end  
 
 
