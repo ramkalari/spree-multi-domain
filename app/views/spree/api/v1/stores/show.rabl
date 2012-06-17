@@ -1,4 +1,5 @@
 object @store
-attributes *store_attributes
+attributes :name, :code, :domains, :email, :default
+
 
 
