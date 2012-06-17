@@ -1,2 +1,2 @@
 collection @stores
-attributes :name, :code, :domains, :email, :default
+attributes :id, :name, :code, :domains, :email, :default

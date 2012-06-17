@@ -6,7 +6,7 @@ module Spree
 
     validates_presence_of :name, :code, :domains
     
-    attr_accessible :name, :code, :domains, :email,:default
+    attr_accessible :id, :name, :code, :domains, :email,:default
                     
     scope :default, where(:default => true)
     scope :by_domain, lambda { |domain| where("domains like ?", "%#{domain}%") }
