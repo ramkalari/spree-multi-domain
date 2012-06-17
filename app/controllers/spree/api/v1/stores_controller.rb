@@ -17,8 +17,7 @@
 				  # GET /stores/1
 				  # GET /stores/1.json
 				  def show
-				    #@store = Spree::Store.find(params[:id])
-				    @store = Spree::Store.where(params)	
+				    @store = Spree::Store.find(params[:id])
 				    respond_to do |format|
 				      format.html # show.html.erb
 				      format.json { render json: @store }

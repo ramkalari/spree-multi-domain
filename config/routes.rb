@@ -5,7 +5,11 @@ Spree::Core::Engine.routes.append do
 
   namespace :api do
     scope :module => :v1 do
-      resources :stores
+      resources :stores do
+      	collection do
+      		get :search
+        end
+  	  end
     end
   end
   
