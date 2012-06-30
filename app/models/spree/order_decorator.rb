@@ -4,8 +4,8 @@ Spree::Order.class_eval do
   
   def deliver_order_confirmation_email
     begin
-      OrderMailer.confirm_email(self).deliver
-      OrderMailer.confirm_email_to_stores(self).deliver
+      Spree::OrderMailer.confirm_email(self).deliver
+      Spree::OrderMailer.confirm_email_to_stores(self).deliver
     rescue Exception => e
       logger.error("#{e.class.name}: #{e.message}")
       logger.error(e.backtrace * "\n")
