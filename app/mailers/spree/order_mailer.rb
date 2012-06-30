@@ -5,9 +5,11 @@ class Spree::OrderMailer < ActionMailer::Base
     @order = order
     subject = (resend ? "[RESEND] " : "")
     subject += "#{Spree::Config[:site_name]} Order Confirmation ##{order.number}"
-    mail_params = {:to => order.email, :subject => subject}
-    mail_params[:from] = order.store.email if order.store.email.present?
-    mail(mail_params)
+    mail(:to => order.email,
+           :subject => subject)
+    #mail_params = {:to => order.email, :subject => subject}
+    #mail_params[:from] = order.store.email if order.store.email.present?
+    #mail(mail_params)
   end
 
   def cancel_email(order, resend=false)
