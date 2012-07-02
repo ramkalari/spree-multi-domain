@@ -7,7 +7,7 @@ Spree::Order.class_eval do
       Spree::OrderMailer.confirm_email(self).deliver
       line_items_by_store = self.line_items.group_by {|line_item| line_item.store_id}
       line_items_by_store.each do |key, value|
-        Spree::OrderMailer.confirm_email_to_stores(self, value).deliver  
+        Spree::OrderMailer.confirm_email_to_stores(key, self, value).deliver  
       end
       
     rescue Exception => e
