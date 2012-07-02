@@ -18,14 +18,15 @@ class Spree::OrderMailer < ActionMailer::Base
     # foe every key in the hash, load the store, get its email and send the lineitems to the template and the email
     @order = order
     line_items_by_store = order.line_items.group_by {|line_item| line_item.store_id}
+    mail_messages = []
     line_items_by_store.each do |key, value|
         @line_items = value
         subject = (resend ? "[RESEND] " : "")
         subject += "#{Spree::Config[:site_name]} New Order ##{order.number}"
-        mail(:to => order.email,
-             :subject => subject)
-
+        mail_messages.push(mail(:to => order.email,
+             :subject => subject))
     end
+    return mail_messages
   end
 
   def cancel_email(order, resend=false)
