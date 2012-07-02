@@ -6,7 +6,6 @@ Spree::Order.class_eval do
     begin
       Spree::OrderMailer.confirm_email(self).deliver
       Spree::OrderMailer.confirm_email_to_stores(self)
-     
     rescue Exception => e
       logger.error("#{e.class.name}: #{e.message}")
       logger.error(e.backtrace * "\n")

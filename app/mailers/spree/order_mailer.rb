@@ -24,7 +24,7 @@ class Spree::OrderMailer < ActionMailer::Base
         subject = (resend ? "[RESEND] " : "")
         subject += "#{Spree::Config[:site_name]} New Order ##{order.number}"
         mail(:to => order.email,
-             :subject => subject)).deliver
+             :subject => subject).deliver
     end
     
   end
