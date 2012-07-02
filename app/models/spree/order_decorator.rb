@@ -1,6 +1,6 @@
 Spree::Order.class_eval do
-  belongs_to :store
-  scope :by_store, lambda { |store| where(:store_id => store.id) }
+  #belongs_to :store
+  #scope :by_store, lambda { |store| where(:store_id => store.id) }
   
   def deliver_order_confirmation_email
     begin
