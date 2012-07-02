@@ -5,8 +5,7 @@ Spree::Order.class_eval do
   def deliver_order_confirmation_email
     begin
       Spree::OrderMailer.confirm_email(self).deliver
-      Spree::OrderMailer.confirm_email_to_stores(self).each do |message|
-        message.deliver
+      Spree::OrderMailer.confirm_email_to_stores(self)
       end
     rescue Exception => e
       logger.error("#{e.class.name}: #{e.message}")
