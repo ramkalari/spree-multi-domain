@@ -5,7 +5,11 @@ Spree::Order.class_eval do
   def deliver_order_confirmation_email
     begin
       Spree::OrderMailer.confirm_email(self).deliver
-      Spree::OrderMailer.confirm_email_to_stores(self)
+      line_items_by_store = self.line_items.group_by {|line_item| line_item.store_id}
+      line_items_by_store.each do |key, value|
+        Spree::OrderMailer.confirm_email_to_stores(self, value).deliver  
+      end
+      
     rescue Exception => e
       logger.error("#{e.class.name}: #{e.message}")
       logger.error(e.backtrace * "\n")
