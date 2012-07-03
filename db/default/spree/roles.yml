@@ -1,5 +1,3 @@
-admin_role:
-  name: admin
+retailer_role:
+  name: retailer
 
-user_role:
-  name: user
