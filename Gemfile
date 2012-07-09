@@ -10,4 +10,6 @@ end
 
 gemspec
 gem 'spree', :git => 'https://github.com/ramkalari/spree'
+gem 'activemerchant', :git => 'git://github.com/ramkalari/active_merchant.git' 
+
 gem 'ffaker'
