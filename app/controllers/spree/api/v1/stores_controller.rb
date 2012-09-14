@@ -28,6 +28,7 @@
 				  def search
 				    @stores = Spree::Store.search(params[:q]).result.page(params[:page])
 				    render :index
+				    
 				  end  
 
 
